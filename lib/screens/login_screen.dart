@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:productos_app/widgets/widgets.dart';
 
+import '../ui/input_decorations.dart';
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -39,7 +41,8 @@ class LoginScreen extends StatelessWidget {
           Text(
             'Crear una nueva cuenta',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          )
+          ),
+          SizedBox(height: 50),
         ],
       ),
     )));
@@ -60,25 +63,49 @@ class _LoginForm extends StatelessWidget {
             TextFormField(
               autocorrect: false,
               keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.deepPurple),
+              decoration: InputDecorations.authInputDecoration(
+                  hintText: 'losajhonny@gmail.com',
+                  labelText: 'Correo',
+                  prefixIcon: Icons.alternate_email_sharp),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            TextFormField(
+              autocorrect: false,
+              keyboardType: TextInputType.emailAddress,
+              obscureText: true,
+              decoration: InputDecorations.authInputDecoration(
+                  hintText: '*********',
+                  labelText: 'Contraseña',
+                  prefixIcon: Icons.lock_outline_sharp),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            MaterialButton(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              disabledColor: Colors.grey,
+              elevation: 0,
+              color: Colors.deepPurple,
+              child: Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 80,
+                  vertical: 15,
                 ),
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.deepPurple,
-                    width: 2,
+                child: Text(
+                  'Ingresar',
+                  style: TextStyle(
+                    color: Colors.white,
                   ),
                 ),
-                hintText: 'losajhonny@gmail.com',
-                labelText: 'Email',
-                labelStyle: TextStyle(color: Colors.grey),
-                prefixIcon: Icon(
-                  Icons.alternate_email_sharp,
-                  color: Colors.deepPurple,
-                ),
               ),
-            )
+              onPressed: () {
+                // TODO: LOGIN FORM
+              },
+            ),
           ],
         ),
       ),
