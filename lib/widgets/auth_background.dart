@@ -13,10 +13,10 @@ class AuthBackground extends StatelessWidget {
       // vamos a tener widgets unos sobre otros
       child: Stack(
         children: [
-          _PurpleBox(),
+          const _PurpleBox(),
           // salvaguarda el area
-          _HeaderIcon(),
-          this.child
+          const _HeaderIcon(),
+          child
         ],
       ),
     );
@@ -33,8 +33,8 @@ class _HeaderIcon extends StatelessWidget {
     return SafeArea(
       child: Container(
         width: double.infinity,
-        margin: EdgeInsets.only(top: 30),
-        child: Icon(
+        margin: const EdgeInsets.only(top: 30),
+        child: const Icon(
           Icons.person_pin,
           color: Colors.white,
           size: 100,
@@ -61,37 +61,37 @@ class _PurpleBox extends StatelessWidget {
       // bolitas burbujas
       child: Stack(
         children: [
-          Positioned(
-            child: _Bubble(),
+          const Positioned(
             top: 90,
             left: 30,
-          ),
-          Positioned(
             child: _Bubble(),
+          ),
+          const Positioned(
             top: -40,
             left: -30,
-          ),
-          Positioned(
             child: _Bubble(),
+          ),
+          const Positioned(
             top: -50,
             right: -20,
-          ),
-          Positioned(
             child: _Bubble(),
+          ),
+          const Positioned(
             bottom: -50,
             left: 10,
-          ),
-          Positioned(
             child: _Bubble(),
+          ),
+          const Positioned(
             bottom: 120,
             right: 20,
+            child: _Bubble(),
           )
         ],
       ),
     );
   }
 
-  BoxDecoration _purpleBackground() => BoxDecoration(
+  BoxDecoration _purpleBackground() => const BoxDecoration(
           gradient: LinearGradient(colors: [
         Color.fromRGBO(63, 63, 156, 1),
         Color.fromRGBO(90, 70, 178, 1)
@@ -109,7 +109,7 @@ class _Bubble extends StatelessWidget {
       height: 100,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
-          color: Color.fromRGBO(255, 255, 255, 0.05)),
+          color: const Color.fromRGBO(255, 255, 255, 0.05)),
     );
   }
 }
