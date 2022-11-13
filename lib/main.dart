@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:productos_app/screens/screens.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -13,10 +13,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Productos app',
-      initialRoute: 'login',
-      routes: {'login': (_) => LoginScreen(), 'home': (_) => HomeScreen()},
-      theme:
-          ThemeData.light().copyWith(scaffoldBackgroundColor: Colors.grey[300]),
+      initialRoute: 'home',
+      routes: {
+        'login': (_) => const LoginScreen(),
+        'home': (_) => const HomeScreen()
+      },
+      theme: ThemeData.light().copyWith(
+          scaffoldBackgroundColor: Colors.grey[300],
+          appBarTheme: const AppBarTheme(elevation: 0, color: Colors.indigo),
+          floatingActionButtonTheme: const FloatingActionButtonThemeData(
+              backgroundColor: Colors.indigo, elevation: 0)),
     );
   }
 }
